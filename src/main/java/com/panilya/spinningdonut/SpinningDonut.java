@@ -10,10 +10,7 @@ public class SpinningDonut {
         char[] b = new char[1760];
 
         System.out.print("\u001b[2J");
-        double cA = Math.cos(A);
-        double sA = Math.sin(A);
-        double cB = Math.cos(B);
-        double sB = Math.sin(B);
+
         for (;;) {
             Arrays.fill(b, 0, 1760, ' ');
             Arrays.fill(z, 0, 1760, 0);
@@ -23,12 +20,13 @@ public class SpinningDonut {
                     double st = Math.sin(j);
                     double sp = Math.sin(i);
                     double cp = Math.cos(i);
+                    double cA = Math.cos(A);
+                    double sA = Math.sin(A);
+                    double cB = Math.cos(B);
+                    double sB = Math.sin(B);
                     double h = ct + 2;
                     double D = 1 / (sp * h * sA + st * cA + 5);
                     double t = sp * h * cA - st * sA;
-
-//                var x=0|(40+30*D*(cp*h*cB-t*sB)),
-//                        y=0|(12+15*D*(cp*h*sB+t*cB)),
 
                     int x = (int) (40 + 30 * D * (cp * h * cB - t * sB));
                     int y = (int) (12 + 15 * D * (cp * h * sB + t * cB));
